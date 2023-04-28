@@ -48,7 +48,7 @@ export default function LaunchPage( { loggedIn, currUser }: LaunchPageProps) {
       password: signupPassword,
       email: signupEmail,
     };
-    const response = await fetch('/users', {
+    const response = await fetch('/api/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

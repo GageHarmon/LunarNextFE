@@ -1,5 +1,4 @@
 // import React, { useState } from 'react';
-import Layout from '../components/Layout';
 
 interface HomeProps {
     currUser: any;
@@ -11,10 +10,8 @@ interface HomeProps {
     }
   
   return (
-    <Layout>
-      <div className="p-4 mb-8 rounded-lg">
-          <h2 className="text-3xl font-bold text-lightpurp">Welcome {currUser.username}</h2>
-      </div>
-    </Layout>
+    <div className="p-4 mb-8 rounded-lg">
+        <h2 className="text-3xl font-bold text-lightpurp">Welcome {currUser.username}</h2>
+    </div>
   );
 }

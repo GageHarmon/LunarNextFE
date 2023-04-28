@@ -1,14 +1,11 @@
 import React, { useEffect } from 'react';
-import Layout from '../components/Layout';
 
 const Dashboard: React.FC = () => {
   
   return (
-    <Layout>
-      <div className="p-4 mb-8 rounded-lg">
-          <h2 className="text-3xl font-bold text-lightpurp">Dashboard</h2>
-      </div>
-    </Layout>
+    <div className="p-4 mb-8 rounded-lg">
+        <h2 className="text-3xl font-bold text-lightpurp">Dashboard</h2>
+    </div>
   );
 };
 
