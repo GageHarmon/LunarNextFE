@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-// import { useSession, signIn, signOut } from "next-auth/react";
 import Layout from '../components/Layout';
 
 interface LaunchPageProps {
   loggedIn: boolean;
-  // currUser: any;
+  currUser: any;
 }
 
-export default function LaunchPage( { loggedIn }: LaunchPageProps) {
-
+export default function LaunchPage( { loggedIn, currUser }: LaunchPageProps) {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -27,7 +25,7 @@ export default function LaunchPage( { loggedIn }: LaunchPageProps) {
       username: username,
       password: password
     };
-    const response = await fetch('/api/login', {
+    const response = await fetch('/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +48,7 @@ export default function LaunchPage( { loggedIn }: LaunchPageProps) {
       password: signupPassword,
       email: signupEmail,
     };
-    const response = await fetch('/api/users', {
+    const response = await fetch('/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

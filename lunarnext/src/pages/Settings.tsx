@@ -3,11 +3,11 @@
 interface SettingsProps {
     currUser: any;
   }
-  
+
   export default function Settings({ currUser }: SettingsProps) {
-  //   if (!currUser) {
-  //     return <div className="text-dblue">Loading.. </div>;
-  //   }
+    if (!currUser) {
+      return <div className="text-dblue">Loading.. </div>;
+    }
   
   
   return (

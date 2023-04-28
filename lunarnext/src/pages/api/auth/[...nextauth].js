@@ -1,18 +1,18 @@
-import NextAuth from "next-auth"
-import GoogleProvider from "next-auth/providers/google";
-import GithubProvider from "next-auth/providers/github"
+// import NextAuth from "next-auth"
+// import GoogleProvider from "next-auth/providers/google";
+// import GithubProvider from "next-auth/providers/github"
 
-export default NextAuth({
+// export default NextAuth({
   // Configure one or more authentication providers
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET
-    }),
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
+  // providers: [
+    // GoogleProvider({
+    //   clientId: process.env.GOOGLE_CLIENT_ID,
+    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    // }),
+    // GithubProvider({
+    //   clientId: process.env.GITHUB_ID,
+    //   clientSecret: process.env.GITHUB_SECRET,
+    // }),
     // Providers.Credentials({
     //   name: "Email and Password",
     //   credentials: {
@@ -38,8 +38,8 @@ export default NextAuth({
     //   },
     // }),
     // ...add more providers here
-  ],
-  secret: process.env.NEXTAUTH_SECRET,
+  // ],
+  // secret: process.env.NEXTAUTH_SECRET,
 
 //   callbacks: {
 //   //   async signIn(user, account, profile) {
@@ -79,4 +79,4 @@ export default NextAuth({
 //       signIn: "/login",
 //     },
 // })
-})
+// })
