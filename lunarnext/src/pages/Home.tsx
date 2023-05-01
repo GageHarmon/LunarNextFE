@@ -11,7 +11,7 @@ interface HomeProps {
   
   return (
     <div className="p-4 mb-8 rounded-lg">
-        <h2 className="text-3xl font-bold text-lightpurp">Welcome {currUser.username}</h2>
+        <h2 className="text-3xl font-bold text-lightpurp">Welcome To LunarBreeze</h2>
     </div>
   );
 }

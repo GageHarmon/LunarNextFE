@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
+import Chat from '../components/Chat';
 import 'tailwindcss/tailwind.css'
 
 function MyApp({ Component, pageProps }) {
@@ -32,12 +33,12 @@ function MyApp({ Component, pageProps }) {
         console.error('Error fetching logged_user:', error);
       });
   }, []);
-
  
 
   return (
     <Layout>
       <Component {...pageProps} currUser={currUser} loggedIn={loggedIn}/>
+      <Chat currUser={currUser}/>
     </Layout>
   )
 }

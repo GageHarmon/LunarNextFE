@@ -3,7 +3,7 @@ import { fetchUsers } from '../src/pages/api/userapi';
 
 type User = {
     id: number;
-    name: string;
+    username: string;
     email: string;
     role: string;
     created_at: string;
