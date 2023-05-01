@@ -1,5 +1,5 @@
 // src/store.ts
-import  { create } from 'zustand';
+import { create } from 'zustand';
 import { fetchTickets } from '../src/pages/api/ticketapi';
 
 type Ticket = {
