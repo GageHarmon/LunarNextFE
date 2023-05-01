@@ -14,25 +14,3 @@ export default function Dashboard({ currUser }: DashboardProps) {
     </div>
   );
 };
-
-
-
-
-// +++++ZUSTAND DATA STATE FOR TICKETS+++++
-
-// import DashTable from '../components/DashTable';
-// import { useDataStore } from '../../store/data';
-{/* <DashTable /> */}
-// const data = useDataStore((state) => state.data);
-// const setData = useDataStore((state) => state.setData);
-
-// useEffect(() => {
-//   const fetchData = async () => {
-//     const response = await fetch('/api/tickets');
-//     const result = await response.json();
-//     setData(result);
-//   };
-
-//   fetchData();
-// }, [setData]);
-// data={data} <--- pass into DashTable
