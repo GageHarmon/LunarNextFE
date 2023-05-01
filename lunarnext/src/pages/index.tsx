@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
+import { useUserStore } from '../../store/userdata';
 
-interface LaunchPageProps {
-  loggedIn: boolean;
-  currUser: any;
-}
-
-export default function LaunchPage( { loggedIn, currUser }: LaunchPageProps) {
+export default function LaunchPage() {
+  const router = useRouter();
+  const currUser = useUserStore((state) => state.currUser);
+  const loggedIn = useUserStore((state) => state.loggedIn);
+  const setCurrUser = useUserStore((state) => state.setCurrUser);
+  const setLoggedIn = useUserStore((state) => state.setLoggedIn);
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -16,14 +17,11 @@ export default function LaunchPage( { loggedIn, currUser }: LaunchPageProps) {
   const [signupEmail, setSignupEmail] = useState('');
   const [showSignupForm, setShowSignupForm] = useState(false);
 
-
-  const router = useRouter();
-
   async function handleSubmit(e) {
     e.preventDefault();
     const data = {
       username: username,
-      password: password
+      password: password,
     };
     const response = await fetch('/login', {
       method: 'POST',
@@ -34,7 +32,9 @@ export default function LaunchPage( { loggedIn, currUser }: LaunchPageProps) {
     });
 
     if (response.ok) {
-      const currUser = await response.json();
+      const user = await response.json();
+      setCurrUser(user);
+      setLoggedIn(true);
       router.push('/Home');
     } else {
       alert('Invalid username or password');
@@ -55,17 +55,17 @@ export default function LaunchPage( { loggedIn, currUser }: LaunchPageProps) {
       },
       body: JSON.stringify(data),
     });
-  
+
     if (response.ok) {
       alert('User created successfully. You can now log in.');
     } else {
       alert('Error creating user. Please try again.');
     }
   }
-  
+
   function toggleSignupForm() {
     setShowSignupForm(!showSignupForm);
-  }  
+  }
 
   useEffect(() => {
     if (loggedIn) {

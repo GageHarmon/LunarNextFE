@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Link from 'next/link';
 import { useTicketStore } from '../../store/ticketdata';
 
 const Tickets: React.FC = () => {
@@ -13,6 +14,7 @@ const Tickets: React.FC = () => {
   }, [fetchAndSetTickets]);
     
   return (
+    <div>
     <div className="relative overflow-x-auto sm:rounded-lg " style={{ maxHeight: "50vh", overflowY: "auto" }}>
         <div className="max-h-1/2-screen overflow-y-auto">
         <table className="w-full text-sm text-left text-blue-100 dark:text-blue-100">
@@ -68,6 +70,14 @@ const Tickets: React.FC = () => {
             </tbody>
         </table>
         </div>
+    </div>
+    <div className="mb-4 mt-4">
+        <Link href="/CreateTicket">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Create Ticket
+          </button>
+        </Link>
+    </div>
     </div>
   );
 };

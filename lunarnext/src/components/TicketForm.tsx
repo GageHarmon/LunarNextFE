@@ -1,44 +1,47 @@
-// src/components/TicketForm.tsx
-import React from 'react';
-import { useTicketStore } from '../../store/ticketdata';
-import { addTicket } from '../pages/api/addticket';
+// import React from 'react';
+// import { useTicketStore } from '../../store/ticketdata';
+// import { addTicket } from '../pages/api/addticket';
 
-const TicketForm: React.FC = () => {
-  const newTicketData = useTicketStore((state) => state.newTicketData);
-  const setNewTicketData = useTicketStore((state) => state.setNewTicketData);
-  const fetchAndSetTickets = useTicketStore((state) => state.fetchAndSetTickets);
+// type TicketFormProps = {
+//   user_id: number | undefined;
+// };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setNewTicketData({ [name]: value });
-  };
+// const TicketForm: React.FC<TicketFormProps> = ({ user_id }) => {
+//   const newTicketData = useTicketStore((state) => state.newTicketData);
+//   const setNewTicketData = useTicketStore((state) => state.setNewTicketData);
+//   const fetchAndSetTickets = useTicketStore((state) => state.fetchAndSetTickets);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    await addTicket(newTicketData);
-    fetchAndSetTickets(); // Refresh the ticket list after adding a ticket
-  };
+//   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+//     const { name, value } = event.target;
+//     setNewTicketData({ [name]: value });
+//   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Title:
-        <input
-          type="text"
-          name="title"
-          value={newTicketData.title}
-          onChange={handleChange}
-        />
-      </label>
-      {/* Add more input fields for other ticket properties */}
-      <button
-        className="bg-blue-500 text-white px-4 py-2 rounded-md mb-4"
-        onClick={() => handleAddTicket(newTicketData)}
-        >
-        Add Ticket
-        </button>
-    </form>
-  );
-};
+//   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+//     event.preventDefault();
+//     await addTicket({ user_id, ...newTicketData });
+//     fetchAndSetTickets(); // Refresh the ticket list after adding a ticket
+//   };
 
-export default TicketForm;
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <label>
+//         Title:
+//         <input
+//           type="text"
+//           name="title"
+//           value={newTicketData.title}
+//           onChange={handleChange}
+//         />
+//       </label>
+//       {/* Add more input fields for other ticket properties */}
+//       {/* <button
+//         className="bg-blue-500 text-white px-4 py-2 rounded-md mb-4"
+//         onClick={() => handleAddTicket(newTicketData)}
+//         >
+//         Add Ticket
+//         </button> */}
+//     </form>
+//   );
+// };
+
+// export default TicketForm;
