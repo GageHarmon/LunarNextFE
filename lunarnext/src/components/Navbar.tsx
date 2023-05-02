@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 
 const Navbar = () => {
@@ -20,34 +21,43 @@ const Navbar = () => {
       <nav className="bg-lightpurp border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <div className="flex items-center">
-            <a
-              href="/"
-              className="self-center text-2xl text-white font-semibold whitespace-nowrap dark:text-white"
-            >
-              LunarBreeze
-            </a>
-          </div>
-          <div className="hidden md:flex md:items-center md:justify-center md:w-auto">
-            <ul className="flex items-center justify-center space-x-4">
-              <li>
-              <a href="/Profile" className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                Profile</a>
-              </li>
-              <li>
-              <a href="/Dashboard" className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                Dashboard</a>
-              </li>
-              <li>
-              <a href="/tickets" className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                Tickets</a>
-              </li>
-              <li>
-              <a href="/About" className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                About</a>
-              </li>
+            <Link href="/"
+                 className="self-center text-2xl text-white font-semibold whitespace-nowrap dark:text-white">
+                  LunarBreeze
+              </Link>
+            </div>
+            <div className="hidden md:flex md:items-center md:justify-center md:w-auto">
+              <ul className="flex items-center justify-center space-x-4">
+                <li>
+                  <Link href="/Profile" 
+                    className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                      Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/Dashboard"
+                     className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                      Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/tickets"
+                     className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                      Tickets
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/About"
+                     className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                      About
+                  </Link>
+                </li>
             </ul>
           </div>
           <div className="flex items-center justify-center space-x-4">
+            {/* <div>
+                <a href="/" className="list-none px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</a>
+            </div> */}
             <form onSubmit={handleLogout} className='inline'>
               <button type="submit" className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                 Logout

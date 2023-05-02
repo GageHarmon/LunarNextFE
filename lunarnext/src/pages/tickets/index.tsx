@@ -7,17 +7,19 @@ interface TicketsProps {
 }
 
 const Tickets: React.FC = ({ currUser }: TicketsProps) => {
+    
+    // ++++ ZUSTAND STATE ++++
+    const tickets = useTicketStore((state) => state.tickets);
+    const fetchAndSetTickets = useTicketStore((state) => state.fetchAndSetTickets);
+    
+    // ++++  FETCH FROM API FOLDER ++++
+    useEffect(() => {
+      fetchAndSetTickets();
+    }, [fetchAndSetTickets]);
+
     if (!currUser) {
         return <div className="text-dblue">Please login to continue... </div>;
       }
-    // ++++ ZUSTAND STATE ++++
-  const tickets = useTicketStore((state) => state.tickets);
-  const fetchAndSetTickets = useTicketStore((state) => state.fetchAndSetTickets);
-
-    // ++++  FETCH FROM API FOLDER ++++
-  useEffect(() => {
-    fetchAndSetTickets();
-  }, [fetchAndSetTickets]);
     
   return (
     <div>
@@ -33,6 +35,7 @@ const Tickets: React.FC = ({ currUser }: TicketsProps) => {
                             <label htmlFor="checkbox-all" className="sr-only">checkbox</label>
                         </div>
                     </th>
+                    {/* +++++ TABLE COLUMNS ++++++ */}
                     <th scope="col" className="px-6 py-3">
                         Ticket #
                     </th>
@@ -65,6 +68,7 @@ const Tickets: React.FC = ({ currUser }: TicketsProps) => {
                         <label htmlFor="checkbox-table-1" className="sr-only">checkbox</label>
                     </div>
                     </td>
+                {/* +++++ TABLE DATA WITH CLICKABLE ID +++++ */}
                     <td className="px-6 py-4">
                         <Link as={`/tickets/${ticket.id}`} href="/tickets/[id]">
                             <button className="text-dpurp hover:text-blue-800 cursor-pointer">#{ticket.id}</button>
@@ -82,7 +86,7 @@ const Tickets: React.FC = ({ currUser }: TicketsProps) => {
         </div>
     </div>
         <div className="mb-4 mt-4 flex">
-            {/* ++++++ BUTTONS ++++++ */}
+            {/* ++++++ CREATE TICKET BUTTON ++++++ */}
             <div className="mr-4">
                 <Link href="/tickets/CreateTicket">
                 <button className="bg-lightpurp hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -90,11 +94,6 @@ const Tickets: React.FC = ({ currUser }: TicketsProps) => {
                 </button>
                 </Link>
             </div>
-            {/* <div className="mr-4">
-                <button className="bg-lightpurp hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Delete Ticket
-                </button>
-            </div> */}
         </div>
     </div>
   );

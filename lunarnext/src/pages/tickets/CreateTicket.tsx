@@ -46,7 +46,7 @@ const CreateTicket: React.FC = () => {
 
   useEffect(() => {
     fetchAndSetUsers();
-  }, []);
+  }, [fetchAndSetUsers]);
 
   return (
     <div>

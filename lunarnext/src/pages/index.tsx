@@ -69,9 +69,9 @@ export default function LaunchPage() {
 
   useEffect(() => {
     if (loggedIn) {
-      router.push('/Home');
+      router.push('/Profile');
     }
-  }, [loggedIn]);
+  }, [loggedIn, router]);
 
   if (loggedIn) {
     return <div>Redirecting...</div>;
