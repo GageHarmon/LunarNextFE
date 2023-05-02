@@ -13,9 +13,9 @@ type User = {
 type UserState = {
     users: User[];
     fetchAndSetUsers: () => Promise<void>;
+    setCurrUser: (user: User | null) => void;
     currUser: User | null;
     loggedIn: boolean;
-    setCurrUser: (user: User | null) => void;
     setLoggedIn: (loggedIn: boolean) => void;
 };
 
