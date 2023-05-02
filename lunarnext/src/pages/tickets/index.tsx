@@ -1,9 +1,15 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
-import { useTicketStore } from '../../store/ticketdata';
+import { useTicketStore } from '../../../store/ticketdata';
 
-const Tickets: React.FC = () => {
+interface TicketsProps {
+    currUser: any;
+}
 
+const Tickets: React.FC = ({ currUser }: TicketsProps) => {
+    if (!currUser) {
+        return <div className="text-dblue">Please login to continue... </div>;
+      }
     // ++++ ZUSTAND STATE ++++
   const tickets = useTicketStore((state) => state.tickets);
   const fetchAndSetTickets = useTicketStore((state) => state.fetchAndSetTickets);
@@ -18,7 +24,7 @@ const Tickets: React.FC = () => {
     <div className="relative overflow-x-auto sm:rounded-lg " style={{ maxHeight: "50vh", overflowY: "auto" }}>
         <div className="max-h-1/2-screen overflow-y-auto">
         <table className="w-full text-sm text-left text-blue-100 dark:text-blue-100">
-            <thead className="text-xs text-white uppercase bg-lightpurp border-b border-blue-400 dark:text-white">
+            <thead className="text-xs text-dpurp uppercase bg-lightpurp border-b border-blue-400 dark:text-white">
                 <tr>
                     {/* ++++++ CHECK BOXES ++++++ */}
                     <th scope="col" className="p-4">
@@ -59,7 +65,11 @@ const Tickets: React.FC = () => {
                         <label htmlFor="checkbox-table-1" className="sr-only">checkbox</label>
                     </div>
                     </td>
-                    <td className="px-6 py-4">{ticket.id}</td>
+                    <td className="px-6 py-4">
+                        <Link as={`/tickets/${ticket.id}`} href="/tickets/[id]">
+                            <button className="text-dpurp hover:text-blue-800 cursor-pointer">#{ticket.id}</button>
+                        </Link>
+                    </td>
                     <td className="px-6 py-4">{ticket.title}</td>
                     <td className="px-6 py-4">{ticket.category}</td>
                     <td className="px-6 py-4">{ticket.priority}</td>
@@ -71,13 +81,21 @@ const Tickets: React.FC = () => {
         </table>
         </div>
     </div>
-    <div className="mb-4 mt-4">
-        <Link href="/CreateTicket">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Create Ticket
-          </button>
-        </Link>
-    </div>
+        <div className="mb-4 mt-4 flex">
+            {/* ++++++ BUTTONS ++++++ */}
+            <div className="mr-4">
+                <Link href="/tickets/CreateTicket">
+                <button className="bg-lightpurp hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Create Ticket
+                </button>
+                </Link>
+            </div>
+            {/* <div className="mr-4">
+                <button className="bg-lightpurp hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Delete Ticket
+                </button>
+            </div> */}
+        </div>
     </div>
   );
 };

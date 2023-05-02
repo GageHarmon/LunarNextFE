@@ -4,9 +4,9 @@ interface HomeProps {
   }
   
   export default function Home({ currUser }: HomeProps) {
-    // if (!currUser) {
-    //   return <div className="text-dblue">Loading.. </div>;
-    // }
+    if (!currUser) {
+      return <div className="text-dblue">Please login to continue... </div>;
+    }
   
   return (
     <div className="p-4 mb-8 rounded-lg">

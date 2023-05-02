@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useUserStore } from '../../store/userdata';
+import { useUserStore } from '../../../store/userdata';
 
 const CreateTicket: React.FC = () => {
   const router = useRouter();
+
+  // set a selected user so the dropdown could select the user placing the ticket
   const [selectedUser, setSelectedUser] = useState('');
   const { users, fetchAndSetUsers } = useUserStore((state) => ({
     users: state.users,
     fetchAndSetUsers: state.fetchAndSetUsers,
   }));
-
+// states for dropdown menus
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
@@ -72,12 +74,11 @@ const CreateTicket: React.FC = () => {
           </select>
         </div>
         <div className="mb-6">
-            <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Title:
+            <label htmlFor="title" className="block mb-2 mt-4 text-sm font-medium text-gray-900 dark:text-white">
+              Title:
             </label>
             <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} 
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            />
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
             </div>
             <div>
             <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -89,7 +90,7 @@ const CreateTicket: React.FC = () => {
             </select>
             </div>
             <div>
-            <label htmlFor="priority" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="priority" className="block mb-2 mt-4 text-sm font-medium text-gray-900 dark:text-white">
               Priority:
             </label>
             <select id="priority" value={priority} onChange={(e) => setPriority(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -99,7 +100,7 @@ const CreateTicket: React.FC = () => {
             </select>
             </div>
             <div>
-            <label htmlFor="status" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="status" className="block mb-2 mt-4 text-sm font-medium text-gray-900 dark:text-white">
               Status:
             </label>
             <select id="status" value={status} onChange={(e) => setStatus(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -109,8 +110,8 @@ const CreateTicket: React.FC = () => {
             </select>
             </div>
             <div className="mb-6">
-            <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Description:
+            <label htmlFor="description" className="block mb-2 mt-4 text-sm font-medium text-gray-900 dark:text-white">
+              Description:
             </label>
             <textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)} 
             rows={4} 

@@ -1,20 +1,11 @@
 // src/store.ts
 import { create } from 'zustand';
-import { fetchTickets } from '../src/pages/api/ticketapi';
-
-type Ticket = {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  priority: string;
-  status: string;
-  created_at: string;
-};
+import { fetchTickets, fetchTicketById, Ticket } from '../src/pages/api/ticketapi';
 
 type TicketState = {
   tickets: Ticket[];
   fetchAndSetTickets: () => Promise<void>;
+  getTicketById: (id: number) => Promise<Ticket>;
 };
 
 export const useTicketStore = create<TicketState>((set) => ({
@@ -23,4 +14,8 @@ export const useTicketStore = create<TicketState>((set) => ({
     const data = await fetchTickets();
     set({ tickets: data });
   },
+  getTicketById: async (id: number) => {
+    const data = await fetchTicketById(id);
+    return data;
+  }
 }));

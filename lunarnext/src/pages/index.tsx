@@ -35,7 +35,7 @@ export default function LaunchPage() {
       const user = await response.json();
       setCurrUser(user);
       setLoggedIn(true);
-      router.push('/Home');
+      router.push('/Profile');
     } else {
       alert('Invalid username or password');
     }

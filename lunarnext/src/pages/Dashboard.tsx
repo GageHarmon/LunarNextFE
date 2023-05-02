@@ -5,7 +5,7 @@ interface DashboardProps {
 
 export default function Dashboard({ currUser }: DashboardProps) {
   if (!currUser) {
-    return <div className="text-dblue">Loading.. </div>;
+    return <div className="text-dblue">Please login to continue... </div>;
   }
   
   return (

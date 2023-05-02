@@ -36,6 +36,7 @@ const Chat: React.FC<ChatProps> = ({ currUser }) => {
   };
 
   const handleSendMessage = (message: string) => {
+    //removes whitespace, etc.
     if (message.trim()) {
       const chatMessage: ChatMessage = { sender: 'User', content: message };
       sendMessage(chatMessage, currUser);
@@ -47,7 +48,7 @@ const Chat: React.FC<ChatProps> = ({ currUser }) => {
   return (
     <div className="fixed bottom-4 right-4 z-50">
       <button
-        className="text-white bg-blue-500 rounded-full p-4 shadow-lg focus:outline-none"
+        className="text-white bg-lightpurp rounded-full p-4 shadow-lg focus:outline-none"
         onClick={() => setShowChat(!showChat)}
       >
         Chat
