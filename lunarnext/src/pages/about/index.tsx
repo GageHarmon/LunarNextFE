@@ -3,11 +3,11 @@ import Head from 'next/head';
 
 const About: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center pt-32">
+    <div className="flex items-center justify-center pt-32">
       <Head>
         <title>About Us | LunarBreeze</title>
       </Head>
-      <div className="bg-lightpurp text-white shadow-lg rounded-lg p-8 max-w-3xl">
+      <div className="bg-gradient-to-br from-lightpurp to-navpurp text-white shadow-lg rounded-lg p-8 max-w-3xl">
         <h1 className="text-3xl font-bold mb-6">About LunarBreeze</h1>
           <p className="mb-4">
             LunarBreeze is a cutting-edge IT Help Desk solution designed to streamline

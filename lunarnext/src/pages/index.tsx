@@ -9,6 +9,8 @@ export default function LaunchPage() {
   const loggedIn = useUserStore((state) => state.loggedIn);
   const setCurrUser = useUserStore((state) => state.setCurrUser);
   const setLoggedIn = useUserStore((state) => state.setLoggedIn);
+  const [isAdmin, setIsAdmin] = useState(false);
+
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -47,6 +49,7 @@ export default function LaunchPage() {
       username: signupUsername,
       password: signupPassword,
       email: signupEmail,
+      is_admin: isAdmin
     };
     const response = await fetch('/api/users', {
       method: 'POST',
@@ -121,15 +124,28 @@ export default function LaunchPage() {
                 placeholder="Email"
               />
             </div>
+            <div className='mb-4'>
+              <label className='block text-navpurp font-bold mb-2' htmlFor='isAdmin'>
+                Is Admin?
+              </label>
+              <select
+                className='border rounded w-full py-1 px-3 text-gray-700 leading-tight'
+                value={isAdmin.toString()} // convert boolean to string
+                onChange={(e) => setIsAdmin(e.target.value === 'true')} // convert string back to boolean
+              >
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+              </select>
+            </div>
             <input
-              className='bg-lightpurp text-navpurp font-bold py-1 px-4 rounded cursor-pointer'
+              className='text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'
               id='signup-btn'
               type='submit'
               value='Sign up'
             />
           </form>
           <button
-            className='bg-lightpurp text-navpurp font-bold py-1 px-4 rounded cursor-pointer mt-4'
+            className='text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'
             onClick={toggleSignupForm}
           >
             Back to Login
@@ -166,14 +182,14 @@ export default function LaunchPage() {
               />
             </div>
             <input
-              className='bg-white text-navpurp font-bold py-1 px-4 rounded-lg border shadow-2xl cursor-pointer'
+              className='text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'
               id='submit-btn'
               type='submit'
               value='Enter'
             />
           </form>
           <button
-            className='bg-white text-navpurp font-bold py-1 px-4 rounded-lg shadow-2xl cursor-pointer'
+            className='text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'
             onClick={toggleSignupForm}
           >
             Sign up

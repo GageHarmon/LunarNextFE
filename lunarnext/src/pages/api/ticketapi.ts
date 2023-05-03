@@ -2,6 +2,7 @@ const API_URL = 'http://127.0.0.1:5555'; // Replace with your backend URL
 
 export type Ticket = {
   id: number;
+  user_id: number;
   title: string;
   description: string;
   category: string;

@@ -53,7 +53,7 @@ const CreateTicket: React.FC = () => {
   }, [fetchAndSetUsers]);
 
   return (
-    <div>
+    <div className="relative overflow-x-auto sm:rounded-lg ">
         <h1>Create Ticket</h1>
         <form onSubmit={handleSubmit}>
         <div>
@@ -101,6 +101,7 @@ const CreateTicket: React.FC = () => {
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
+                <option value="Urgent">Urgent</option>
             </select>
             </div>
             <div>
@@ -123,7 +124,7 @@ const CreateTicket: React.FC = () => {
             placeholder="Description of the issue or error...">
             </textarea>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" className='text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'>Submit</button>
         </form>
     </div>
   );

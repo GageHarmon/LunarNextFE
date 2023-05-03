@@ -1,8 +1,11 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
+interface NavbarProps {
+  admin: boolean;
+}
 
-const Navbar = () => {
+const Navbar: React.FC = ({admin}: NavbarProps) => {
   const router = useRouter();
 
   function handleLogout(e) {
@@ -18,7 +21,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0">
-      <nav className="bg-lightpurp border-gray-200 dark:bg-gray-900">
+      <nav className="bg-gradient-to-tr from-navpurp to-lightpurp border-gray-200 dark:bg-gray-900 rounded-sm">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <div className="flex items-center">
             <Link href="/"
@@ -30,36 +33,35 @@ const Navbar = () => {
               <ul className="flex items-center justify-center space-x-4">
                 <li>
                   <Link href="/profile" 
-                    className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                    className="text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                       Profile
                   </Link>
                 </li>
                 <li>
                   <Link href="/dashboard"
-                     className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                     className="text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                       Dashboard
                   </Link>
                 </li>
+                {/* {admin ? */}
                 <li>
                   <Link href="/tickets"
-                     className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                     className="text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                       Tickets
                   </Link>
                 </li>
+               {/* : null} */}
                 <li>
                   <Link href="/about"
-                     className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                     className="text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                       About
                   </Link>
                 </li>
             </ul>
           </div>
           <div className="flex items-center justify-center space-x-4">
-            {/* <div>
-                <a href="/" className="list-none px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</a>
-            </div> */}
             <form onSubmit={handleLogout} className='inline'>
-              <button type="submit" className="px-4 py-2 text-white bg-gradient-to-br from-lightpurp to-black rounded shadow-md hover:bg-blue-800 md:hover:bg-blue-700 md:hover:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+              <button type="submit" className="text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                 Logout
               </button>
             </form>

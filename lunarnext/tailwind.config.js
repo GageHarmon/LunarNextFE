@@ -16,6 +16,7 @@ module.exports = {
         'lightpurp': "#ab6fd1",
         'ldark': "#15161a",
         'navpurp': "#2f146e",
+        'pinkred': "#e63e5f",
       },
     },
   },

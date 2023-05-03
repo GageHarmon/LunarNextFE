@@ -48,7 +48,7 @@ const Chat: React.FC<ChatProps> = ({ currUser }) => {
   return (
     <div className="fixed bottom-4 right-4 z-50">
       <button
-        className="text-white bg-lightpurp rounded-full p-4 shadow-lg focus:outline-none"
+        className="text-white bg-gradient-to-br from-lightpurp to-pinkred rounded-full p-4 shadow-lg focus:outline-none"
         onClick={() => setShowChat(!showChat)}
       >
         Chat
@@ -72,7 +72,7 @@ const Chat: React.FC<ChatProps> = ({ currUser }) => {
               />
               <button
                 onClick={() => handleSendMessage(message)}
-                className="text-white bg-lightpurp p-2 rounded-lg"
+                className="text-white bg-gradient-to-br from-lightpurp to-pinkred p-2 rounded-lg"
               >
                 Send
               </button>
