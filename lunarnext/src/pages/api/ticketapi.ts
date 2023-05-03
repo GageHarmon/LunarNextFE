@@ -8,7 +8,17 @@ export type Ticket = {
   priority: string;
   status: string;
   created_at: string;
+  comments: Comment[];
 };
+
+export interface Comment {
+  id: number;
+  ticket_id: number;
+  user_id: number;
+  comment: string;
+  created_at: string;
+}
+
 
 export async function fetchTickets() {
   const response = await fetch(`${API_URL}/api/tickets`);

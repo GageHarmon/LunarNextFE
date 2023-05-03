@@ -72,7 +72,7 @@ const Chat: React.FC<ChatProps> = ({ currUser }) => {
               />
               <button
                 onClick={() => handleSendMessage(message)}
-                className="text-white bg-blue-500 p-2 rounded-lg"
+                className="text-white bg-lightpurp p-2 rounded-lg"
               >
                 Send
               </button>

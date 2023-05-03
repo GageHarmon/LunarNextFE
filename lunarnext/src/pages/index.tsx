@@ -35,7 +35,7 @@ export default function LaunchPage() {
       const user = await response.json();
       setCurrUser(user);
       setLoggedIn(true);
-      router.push('/Profile');
+      router.push('/profile');
     } else {
       alert('Invalid username or password');
     }
@@ -69,7 +69,7 @@ export default function LaunchPage() {
 
   useEffect(() => {
     if (loggedIn) {
-      router.push('/Profile');
+      router.push('/profile');
     }
   }, [loggedIn, router]);
 

@@ -6,18 +6,21 @@ const CreateTicket: React.FC = () => {
   const router = useRouter();
 
   // set a selected user so the dropdown could select the user placing the ticket
+  // work around until I figure out how to just grab UID on ticket submit
   const [selectedUser, setSelectedUser] = useState('');
   const { users, fetchAndSetUsers } = useUserStore((state) => ({
     users: state.users,
     fetchAndSetUsers: state.fetchAndSetUsers,
   }));
-// states for dropdown menus
+
+  // states for dropdown menus
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [priority, setPriority] = useState('');
   const [status, setStatus] = useState('');
 
+  // submit ticket
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
@@ -37,8 +40,9 @@ const CreateTicket: React.FC = () => {
     });
 
     if (response.ok) {
+      // if ticket is created, redirect to tickets page
       alert('Ticket created successfully.');
-      router.push('/Tickets');
+      router.push('/tickets');
     } else {
       alert('Error creating ticket. Please try again.');
     }
