@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
-import Chat from '../components/Chat';
+// import Chat from '../components/Chat';
 import 'tailwindcss/tailwind.css'
 
 function MyApp({ Component, pageProps }) {
@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Layout>
       <Component {...pageProps} currUser={currUser} loggedIn={loggedIn} admin={admin}/>
-      <Chat currUser={currUser}/>
+      {/* <Chat currUser={currUser}/> */}
     </Layout>
   )
 }
