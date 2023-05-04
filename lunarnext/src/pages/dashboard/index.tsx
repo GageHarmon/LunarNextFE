@@ -21,10 +21,10 @@ export default function Dashboard({ currUser }: DashboardProps) {
   }
 
   return (
-    <div className="relative overflow-x-auto sm:rounded-lg " style={{ maxHeight: "50vh", overflowY: "auto" }}>
-      <h2 className="text-3xl font-bold text-lightpurp">{currUser.username}&apos;s Dashboard</h2>
-      <div className="mt-4">
-        <h3 className="text-2xl font-semibold text-lightpurp mb-2">Assigned Tickets</h3>
+    <div className="mt-4">
+      <h2 className="text-3xl font-bold text-navpurp">{currUser.username}&apos;s Dashboard</h2>
+      <h3 className="text-2xl font-semibold text-navpurp mb-2">Assigned Tickets</h3>
+      <div className="relative overflow-x-auto sm:rounded-lg " style={{ maxHeight: "50vh", overflowY: "auto" }}>
         <table className="w-full text-sm text-left text-blue-100 dark:text-blue-100">
           <thead className="text-xs text-white uppercase bg-navpurp border-b border-blue-400 dark:text-white">
             <tr>
@@ -41,7 +41,7 @@ export default function Dashboard({ currUser }: DashboardProps) {
               <tr key={ticket.id} className="bg-lightpurp border-b border-blue-400 hover:bg-navpurp">
                 <td className="px-6 py-4">
                   <Link as={`/tickets/${ticket.id}`} href="/tickets/[id]">
-                      <button className="text-navpurp hover:text-blue-800 cursor-pointer">#{ticket.id}</button>
+                      <button className="hover:text-blue-800 cursor-pointer">#{ticket.id}</button>
                   </Link>
                 </td>
                 <td className="px-6 py-4">{ticket.title}</td>

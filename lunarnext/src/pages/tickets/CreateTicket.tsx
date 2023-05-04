@@ -23,6 +23,14 @@ const CreateTicket: React.FC = () => {
   // submit ticket
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Submitting ticket:', {
+      user_id: selectedUser,
+      title,
+      description,
+      category,
+      priority,
+      status,
+    });
     const data = {
       user_id: selectedUser,
       title,
@@ -53,13 +61,13 @@ const CreateTicket: React.FC = () => {
   }, [fetchAndSetUsers]);
 
   return (
-    <div className="relative overflow-x-auto sm:rounded-lg ">
+    <div className="relative w-full mx-auto sm:rounded-lg text-navpurp">
         <h1>Create Ticket</h1>
         <form onSubmit={handleSubmit}>
         <div>
           <label
             htmlFor="user"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-navpurp dark:text-white"
           >
             User:
           </label>
@@ -67,7 +75,7 @@ const CreateTicket: React.FC = () => {
             id="user"
             value={selectedUser}
             onChange={(e) => setSelectedUser(e.target.value)}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-navpurp text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option value="">Select a user</option>
             {users.map((user) => (
@@ -78,26 +86,26 @@ const CreateTicket: React.FC = () => {
           </select>
         </div>
         <div className="mb-6">
-            <label htmlFor="title" className="block mb-2 mt-4 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="title" className="block mb-2 mt-4 text-sm font-medium text-navpurp dark:text-white">
               Title:
             </label>
             <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} 
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                className="bg-gray-50 border border-gray-300 text-navpurp text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
             </div>
             <div>
-            <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="category" className="block mb-2 text-sm font-medium text-navpurp dark:text-white">
               Category:
             </label>
-            <select id="category" value={category} onChange={(e) => setCategory(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <select id="category" value={category} onChange={(e) => setCategory(e.target.value)} className="bg-gray-50 border border-gray-300 text-navpurp text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="Onsite">Onsite</option>
-                <option value="Category2">Remote</option>
+                <option value="Remote">Remote</option>
             </select>
             </div>
             <div>
-            <label htmlFor="priority" className="block mb-2 mt-4 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="priority" className="block mb-2 mt-4 text-sm font-medium text-navpurp dark:text-white">
               Priority:
             </label>
-            <select id="priority" value={priority} onChange={(e) => setPriority(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <select id="priority" value={priority} onChange={(e) => setPriority(e.target.value)} className="bg-gray-50 border border-gray-300 text-navpurp text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
@@ -105,27 +113,29 @@ const CreateTicket: React.FC = () => {
             </select>
             </div>
             <div>
-            <label htmlFor="status" className="block mb-2 mt-4 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="status" className="block mb-2 mt-4 text-sm font-medium text-navpurp dark:text-white">
               Status:
             </label>
-            <select id="status" value={status} onChange={(e) => setStatus(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <select id="status" value={status} onChange={(e) => setStatus(e.target.value)} className="bg-gray-50 border border-gray-300 text-navpurp text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="Open">Open</option>
                 <option value="In Progress">In Progress</option>
                 <option value="Closed">Closed</option>
             </select>
             </div>
             <div className="mb-6">
-            <label htmlFor="description" className="block mb-2 mt-4 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="description" className="block mb-2 mt-4 text-sm font-medium text-navpurp dark:text-white">
               Description:
             </label>
             <textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)} 
             rows={4} 
-            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+            className="block p-2.5 w-full text-sm text-navpurp bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
             placeholder="Description of the issue or error...">
             </textarea>
             </div>
-            <button type="submit" className='text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'>Submit</button>
-        </form>
+            <button type="submit" className='text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'>
+              Submit
+            </button>
+      </form>
     </div>
   );
 };
