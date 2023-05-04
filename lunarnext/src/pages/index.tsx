@@ -188,7 +188,7 @@ export default function LaunchPage() {
               value='Enter'
             />
           </form>
-          <p className='text-navpurp font-bold mb-2'>Don't have an account?</p>
+          <p className='text-navpurp font-bold mb-2'>Don&apos;t have an account?</p>
           <button
             className='text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'
             onClick={toggleSignupForm}
