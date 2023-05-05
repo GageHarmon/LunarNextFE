@@ -9,14 +9,18 @@ export default function LaunchPage() {
   const loggedIn = useUserStore((state) => state.loggedIn);
   const setCurrUser = useUserStore((state) => state.setCurrUser);
   const setLoggedIn = useUserStore((state) => state.setLoggedIn);
-  const [isAdmin, setIsAdmin] = useState(false);
+  // const [isAdmin, setIsAdmin] = useState(false);
 
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState(''); 
   const [signupUsername, setSignupUsername] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
   const [signupEmail, setSignupEmail] = useState('');
+  const [signupFirstName, setSignupFirstName] = useState('');
+  const [signupLastName, setSignupLastName] = useState('');
   const [showSignupForm, setShowSignupForm] = useState(false);
 
   async function handleSubmit(e) {
@@ -24,6 +28,8 @@ export default function LaunchPage() {
     const data = {
       username: username,
       password: password,
+      first_name: first_name,
+      last_name: last_name,
     };
     const response = await fetch('/login', {
       method: 'POST',
@@ -49,7 +55,9 @@ export default function LaunchPage() {
       username: signupUsername,
       password: signupPassword,
       email: signupEmail,
-      is_admin: isAdmin
+      first_name: signupFirstName,
+      last_name: signupLastName,
+      // is_admin: isAdmin
     };
     const response = await fetch('/api/users', {
       method: 'POST',
@@ -125,6 +133,31 @@ export default function LaunchPage() {
               />
             </div>
             <div className='mb-4'>
+              <label className='block text-navpurp font-bold mb-2 mt-4' htmlFor='signupFirstName'>
+                First Name:
+              </label>
+              <input
+                className='border rounded w-full py-1 px-3 text-gray-700 leading-tight'
+                type="text"
+                value={signupFirstName}
+                onChange={(e) => setSignupFirstName(e.target.value)}
+                placeholder="First Name"
+              />
+            </div>
+            <div className='mb-4'>
+              <label className='block text-navpurp font-bold mb-2 mt-4' htmlFor='signupLastName'>
+                Last Name:
+              </label>
+              <input
+                className='border rounded w-full py-1 px-3 text-gray-700 leading-tight'
+                type="text"
+                value={signupLastName}
+                onChange={(e) => setSignupLastName(e.target.value)}
+                placeholder="Last Name"
+              />
+            </div>
+            console.log(currUser)
+            {/* <div className='mb-4'>
               <label className='block text-navpurp font-bold mb-2' htmlFor='isAdmin'>
                 Is Admin?
               </label>
@@ -136,7 +169,7 @@ export default function LaunchPage() {
                 <option value="false">No</option>
                 <option value="true">Yes</option>
               </select>
-            </div>
+            </div> */}
             <input
               className='text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'
               id='signup-btn'

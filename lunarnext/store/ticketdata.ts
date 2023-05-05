@@ -1,7 +1,7 @@
 // src/store.ts
 import { create } from 'zustand';
 import { fetchTickets, fetchTicketById, Ticket } from '../src/pages/api/ticketapi';
-import Tickets from '@/src/pages/tickets';
+
 
 type TicketState = {
   tickets: Ticket[];
