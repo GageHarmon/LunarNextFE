@@ -156,7 +156,6 @@ export default function LaunchPage() {
                 placeholder="Last Name"
               />
             </div>
-            console.log(currUser)
             {/* <div className='mb-4'>
               <label className='block text-navpurp font-bold mb-2' htmlFor='isAdmin'>
                 Is Admin?

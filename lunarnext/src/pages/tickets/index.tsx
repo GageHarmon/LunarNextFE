@@ -64,7 +64,7 @@ const Tickets: React.FC = ({ currUser }: TicketsProps) => {
             <tbody>
                     {/* ++++++ MAP TICKET DATA ++++++ */}
                 {tickets.map((ticket, index: number) => (
-                <tr key={index} className="bg-lightpurp border-b border-blue-400 hover:bg-navpurp">
+                <tr key={index} className=" text-navpurp bg-white border-b border-blue-400 hover:bg-navpurp hover:text-white">
 
                 {/* +++++ TABLE DATA WITH CLICKABLE ID +++++ */}
                     <td className="px-6 py-4">

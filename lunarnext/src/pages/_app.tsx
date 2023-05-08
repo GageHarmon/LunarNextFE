@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
-// import Chat from '../components/Chat';
+import ChatGPT from '../components/ChatGPT';
 import 'tailwindcss/tailwind.css'
 
 function MyApp({ Component, pageProps }) {
@@ -45,20 +45,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <Layout>
       <Component {...pageProps} currUser={currUser} loggedIn={loggedIn}/>
-      {/* <Chat currUser={currUser}/> */}
+      <ChatGPT/>
     </Layout>
   )
 }
 
 export default MyApp;
-
-// ++++ SESSION STUFF ++++
-
-// import { SessionProvider, useSession } from "next-auth/react"
-// import type { Session } from "next-auth"
-
-// pass into appprops
-// <{ session: Session }>
-
-// <SessionProvider session={session}>
-// </SessionProvider>

@@ -38,7 +38,7 @@ export default function Dashboard({ currUser }: DashboardProps) {
           </thead>
           <tbody>
             {tickets.map((ticket) => (
-              <tr key={ticket.id} className="bg-lightpurp border-b border-blue-400 hover:bg-navpurp">
+              <tr key={ticket.id} className=" text-navpurp bg-white border-b border-blue-400 hover:bg-navpurp hover:text-white">
                 <td className="px-6 py-4">
                   <Link as={`/tickets/${ticket.id}`} href="/tickets/[id]">
                       <button className="hover:text-blue-800 cursor-pointer">#{ticket.id}</button>
