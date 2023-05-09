@@ -78,17 +78,17 @@ const TicketDetails: React.FC<TicketDetailsProps> = ({
   };
 
   return (
-    <div>
+    <div className=" p-6 shadow-2xl rounded-md">
       <h1 className="text-2xl font-semibold text-navpurp dark:text-white">
         Details and Notes for ticket #{ticket?.id}
         <button
-          className="bg-pinkred text-white font-bold py-2 px-4 rounded ml-4"
+          className="bg-pinkred text-white font-bold py-2 px-4 rounded ml-64"
           onClick={() => deleteTicket(ticket.id)}
         >
           <FiTrash className="w-5 h-5 " />
         </button>
       </h1>
-      <p className="mt-1 text-sm text-navpurp dark:text-gray-400">
+      <p className="mt-8 text-md text-navpurp dark:text-gray-400">
         <span className="font-bold">Status: </span>
         {editingStatus ? (
           <>
@@ -111,7 +111,7 @@ const TicketDetails: React.FC<TicketDetailsProps> = ({
           </>
         )}
       </p>
-      <p className="mt-1 text-sm text-navpurp dark:text-gray-400">
+      <p className="mt-4 text-md text-navpurp dark:text-gray-400">
         <span className="font-bold">Priority: </span>
         {editingPriority ? (
           <>
@@ -134,7 +134,7 @@ const TicketDetails: React.FC<TicketDetailsProps> = ({
           </>
         )}
       </p>
-      <p className="mt-1 text-sm text-navpurp dark:text-gray-400">
+      <p className="mt-4 text-md text-navpurp dark:text-gray-400">
         <span className="font-bold">Category: </span>
         {editingCategory ? (
           <>
@@ -157,7 +157,7 @@ const TicketDetails: React.FC<TicketDetailsProps> = ({
           </>
         )}
       </p>
-      <p className="mt-1 text-sm text-navpurp dark:text-gray-400">
+      <p className="mt-4 text-md text-navpurp dark:text-gray-400 max-w-2xl">
         <span className="font-bold">Description: </span>
         {editingDescription ? (
           <>

@@ -45,8 +45,8 @@ const Tickets: React.FC = ({ currUser }: TicketsProps) => {
     
   return (
     <div >
-    <div className="relative overflow-x-auto sm:rounded-lg " style={{ maxHeight: "60vh", overflowY: "auto" }}>
         <h1 className="text-2xl font-bold text-navpurp mb-4">All Tickets</h1>
+    <div className="relative overflow-x-auto sm:rounded-lg " style={{ maxHeight: "60vh", overflowY: "auto" }}>
         <div className="max-h-1/2-screen overflow-y-auto">
         <table className="w-full text-sm text-left text-blue-100 dark:text-blue-100">
             <thead className="text-xs text-white uppercase bg-navpurp border-b border-blue-400 dark:text-white">

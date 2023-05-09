@@ -22,7 +22,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ handleSubmit }) => {
       {!showForm ? (
         <button
           onClick={() => setShowForm(true)}
-          className="bg-gradient-to-br from-lightpurp to-navpurp text-white font-bold py-2 px-4 rounded mt-2"
+          className="bg-gradient-to-br from-lightpurp to-navpurp text-white font-bold py-2 px-4 rounded mt-6"
         >
           Add A New Note
         </button>

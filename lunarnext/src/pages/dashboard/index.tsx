@@ -21,8 +21,9 @@ export default function Dashboard({ currUser }: DashboardProps) {
   }
 
   return (
+  <div className="mt-4">
+    <h2 className="text-3xl font-bold text-navpurp fixed top-20">{currUser.username}&apos;s Dashboard</h2>
     <div className="mt-4">
-      <h2 className="text-3xl font-bold text-navpurp">{currUser.username}&apos;s Dashboard</h2>
       <h3 className="text-2xl font-semibold text-navpurp mb-2">Assigned Tickets</h3>
       <div className="relative overflow-x-auto sm:rounded-lg " style={{ maxHeight: "50vh", overflowY: "auto" }}>
         <table className="w-full text-sm text-left text-blue-100 dark:text-blue-100">
@@ -55,5 +56,6 @@ export default function Dashboard({ currUser }: DashboardProps) {
         </table>
       </div>
     </div>
+  </div>
   );
 }
