@@ -56,6 +56,13 @@ export default function Dashboard({ currUser }: DashboardProps) {
         </table>
       </div>
     </div>
+    <div className="mr-4 mt-4">
+      <Link href="/tickets/CreateTicket">
+        <button className="text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+            Create Ticket
+        </button>
+      </Link>
+    </div>
   </div>
   );
 }

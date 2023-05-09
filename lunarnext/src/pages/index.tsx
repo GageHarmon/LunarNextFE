@@ -42,7 +42,7 @@ export default function LaunchPage() {
       const user = await response.json();
       setCurrUser(user);
       setLoggedIn(true);
-      router.push('/profile');
+      router.push('/dashboard');
     } else {
       alert('Invalid username or password');
     }
@@ -79,7 +79,7 @@ export default function LaunchPage() {
 
   useEffect(() => {
     if (loggedIn) {
-      router.push('/profile');
+      router.push('/dashboard');
     }
   }, [loggedIn, router]);
 
@@ -230,7 +230,7 @@ export default function LaunchPage() {
               />
             </div>
             <input
-              className='text-white bg-transparent to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-2 border-lightpurp'
+              className='text-white bg-transparent hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-2 border-lightpurp'
               id='submit-btn'
               type='submit'
               value='Login'
