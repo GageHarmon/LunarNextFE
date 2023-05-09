@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import TicketDetails from "../../components/TicketDetails";
 import CommentsList from "../../components/CommentsList";
 import CommentForm from "../../components/CommentForm";
-import deleteTicketById from "../../hooks/deleteTicket";
-import editComments from "../../hooks/editComments";
+import useDeleteTicketById from "../../hooks/useDeleteTicket";
+import editComments from "../../hooks/useEditComments";
 
 interface TicketInfoProps {
   currUser: any;
@@ -14,7 +14,7 @@ interface TicketInfoProps {
 const TicketInfo: React.FC<TicketInfoProps> = ({ currUser }) => {
   const router = useRouter();
   const { id } = router.query;
-  const { ticket, deleteTicket } = deleteTicketById(id);
+  const { ticket, deleteTicket } = useDeleteTicketById(id);
   const { comments, handleSubmit } = editComments(id, currUser);
 
   return (
