@@ -106,10 +106,11 @@ export default function LaunchPage() {
         }}
       >
         <source src="/moonbeam.mp4" type="video/mp4" />
+        {/* <a href="https://www.vecteezy.com/video/3194533-moonbeam-over-the-river-and-mountains">Moonbeam Over The River And Mountains Stock Videos by Vecteezy</a> */}
       </video>
       {showSignupForm ? (
         <>
-          <h2 className='text-3xl font-bold text-white mb-8'>Sign up</h2>
+          <h2 className='text-3xl font-bold text-lightpurp mb-8'>Sign up</h2>
           <div className='flex flex-col space-y-4'>
           <form onSubmit={handleSignup}>
             <div className='mb-4'>
@@ -117,7 +118,7 @@ export default function LaunchPage() {
                 New Username:
               </label>
               <input
-                className='border rounded w-full py-1 px-3 text-gray-700 leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-transparent leading-tight'
                 type="text"
                 value={signupUsername}
                 onChange={(e) => setSignupUsername(e.target.value)}
@@ -129,7 +130,7 @@ export default function LaunchPage() {
                 New Password:
               </label>
               <input
-                className='border rounded w-full py-1 px-3 text-gray-700 leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-transparent leading-tight'
                 type="password"
                 value={signupPassword}
                 onChange={(e) => setSignupPassword(e.target.value)}
@@ -141,7 +142,7 @@ export default function LaunchPage() {
                 Email:
               </label>
               <input
-                className='border rounded w-full py-1 px-3 text-gray-700 leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-transparent leading-tight'
                 type="email"
                 value={signupEmail}
                 onChange={(e) => setSignupEmail(e.target.value)}
@@ -153,7 +154,7 @@ export default function LaunchPage() {
                 First Name:
               </label>
               <input
-                className='border rounded w-full py-1 px-3 text-gray-700 leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-transparent leading-tight'
                 type="text"
                 value={signupFirstName}
                 onChange={(e) => setSignupFirstName(e.target.value)}
@@ -165,7 +166,7 @@ export default function LaunchPage() {
                 Last Name:
               </label>
               <input
-                className='border rounded w-full py-1 px-3 text-gray-700 leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-gray-700 leading-tight'
                 type="text"
                 value={signupLastName}
                 onChange={(e) => setSignupLastName(e.target.value)}
@@ -186,14 +187,14 @@ export default function LaunchPage() {
               </select>
             </div> */}
             <input
-              className='text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'
+              className='text-white bg-transparent hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-2 border-lightpurp'
               id='signup-btn'
               type='submit'
               value='Sign up'
             />
           </form>
           <button
-            className='text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'
+            className='text-white bg-transparent hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-2 border-lightpurp'
             onClick={toggleSignupForm}
           >
             Back to Login
@@ -210,7 +211,7 @@ export default function LaunchPage() {
                 Username:
               </label>
               <input
-                className='border rounded w-full py-1 px-3 text-gray-700 leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-white leading-tight'
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -222,7 +223,7 @@ export default function LaunchPage() {
                 Password:
               </label>
               <input
-                className='border rounded w-full py-1 px-3 text-gray-700 leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-white leading-tight'
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -230,15 +231,15 @@ export default function LaunchPage() {
               />
             </div>
             <input
-              className='text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'
+              className='text-white bg-transparent to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-2 border-lightpurp'
               id='submit-btn'
               type='submit'
-              value='Enter'
+              value='Login'
             />
           </form>
           <p className='text-navpurp font-bold mb-2'>Don&apos;t have an account?</p>
           <button
-            className='text-white bg-gradient-to-bl from-lightpurp to-navpurp hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'
+            className='text-white bg-transparent hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-2 border-lightpurp'
             onClick={toggleSignupForm}
           >
             Sign up
