@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Ticket } from "../pages/api/ticketapi";
 
-const deleteTicketById = (id: any) => {
+const useDeleteTicketById = (id: any) => {
   const router = useRouter();
   const [ticket, setTicket] = useState<Ticket | undefined>(undefined);
   const [tickets, setTickets] = useState<Ticket[]>([]);
@@ -31,4 +31,4 @@ const deleteTicketById = (id: any) => {
   return { ticket, deleteTicket };
 };
 
-export default deleteTicketById;
+export default useDeleteTicketById;

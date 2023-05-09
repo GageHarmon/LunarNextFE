@@ -1,7 +1,9 @@
+// COMMENTS = NOTES ON TICKETS
+
 import { useState, useEffect } from "react";
 import { Comment } from "../pages/api/ticketapi";
 
-const editComments = (id: any, currUser: any) => {
+const useEditComments = (id: any, currUser: any) => {
   const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
@@ -41,4 +43,4 @@ const editComments = (id: any, currUser: any) => {
   return { comments, handleSubmit };
 };
 
-export default editComments;
+export default useEditComments;

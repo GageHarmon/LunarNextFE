@@ -1,3 +1,5 @@
+//COMMENTS = NOTES ON TICKETS
+
 import React from "react";
 import { Comment } from "../pages/api/ticketapi";
 

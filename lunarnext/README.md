@@ -2,6 +2,8 @@
 
 Frontend repo for LunarBreeze Next.js
 
+# Code that refers to "Comments" is referring to the Notes section of the tickets.
+
 # CREDITS
 
 ChatGPT played a huge part in debugging and getting skeleton code for specific functions.
