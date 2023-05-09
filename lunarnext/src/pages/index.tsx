@@ -42,7 +42,7 @@ export default function LaunchPage() {
       const user = await response.json();
       setCurrUser(user);
       setLoggedIn(true);
-      router.push('/dashboard');
+      router.push('/');
     } else {
       alert('Invalid username or password');
     }
@@ -79,7 +79,7 @@ export default function LaunchPage() {
 
   useEffect(() => {
     if (loggedIn) {
-      router.push('/dashboard');
+      router.push('/');
     }
   }, [loggedIn, router]);
 

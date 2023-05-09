@@ -56,17 +56,16 @@ function Navbar({ admin }: NavbarProps) {
           </button>
           <div className={`absolute z-10 mt-2 bg-transparent rounded-lg ${menuOpen ? 'block' : 'hidden'}`}>
             <ul className="flex flex-col space-y-2 mt-4 font-medium rounded-lg bg-gradient-to-tr from-navpurp to-lightpurp dark:bg-gray-800 dark:border-gray-700">
-              <li>
+              {/* <li>
                 <Link href="/"
                   className="block py-2 pl-3 pr-4 text-white ">
                     Home
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/profile"
                   className="block py-2 pl-3 pr-4 text-white ">
                     Profile
-    
                 </Link>
               </li>
               <li>
