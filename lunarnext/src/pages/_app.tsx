@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import ChatGPT from '../components/ChatGPT';
+import { useUserStore } from '../../store/userdata';
 import 'tailwindcss/tailwind.css'
 
 function MyApp({ Component, pageProps }) {
-  const [currUser, setCurrUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false);
-  // const [admin, setAdmin] = useState(false)
+    const {
+      currUser,
+      setCurrUser,
+      loggedIn,
+      setLoggedIn,
+      admin,
+      setAdmin,
+    } = useUserStore();
 
   useEffect(() => {
     fetch('/check')
@@ -15,12 +21,6 @@ function MyApp({ Component, pageProps }) {
         setLoggedIn(data.loggedIn);
       });
   }, []);
-
-  // useEffect(() => {
-  //   if (currUser) {
-  //     setAdmin(currUser.is_admin);
-  //   }
-  // }, [currUser]);
 
   useEffect(() => {
     fetch('/logged_user')
@@ -31,7 +31,6 @@ function MyApp({ Component, pageProps }) {
         return r.json();
       })
       .then((data) => {
-        console.log(data);
         if (!data.error) {
           setCurrUser(data);
         }
@@ -39,12 +38,18 @@ function MyApp({ Component, pageProps }) {
       .catch((error) => {
         console.error('Error fetching logged_user:', error);
       });
-  }, []);
+  }, [setCurrUser]);
+
+  useEffect(() => {
+    if (currUser) {
+      setAdmin(currUser.is_admin);
+    }
+  }, [currUser]);
  
 
   return (
-    <Layout>
-      <Component {...pageProps} currUser={currUser} loggedIn={loggedIn}/>
+    <Layout admin={admin}>
+      <Component {...pageProps} currUser={currUser} loggedIn={loggedIn} admin={admin}/>
       <ChatGPT/>
     </Layout>
   )

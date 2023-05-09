@@ -9,7 +9,6 @@ export default function LaunchPage() {
   const loggedIn = useUserStore((state) => state.loggedIn);
   const setCurrUser = useUserStore((state) => state.setCurrUser);
   const setLoggedIn = useUserStore((state) => state.setLoggedIn);
-  // const [isAdmin, setIsAdmin] = useState(false);
 
 
   const [username, setUsername] = useState('');
@@ -118,7 +117,7 @@ export default function LaunchPage() {
                 New Username:
               </label>
               <input
-                className='border border-lightpurp rounded w-full py-1 px-3 text-transparent leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-black leading-tight'
                 type="text"
                 value={signupUsername}
                 onChange={(e) => setSignupUsername(e.target.value)}
@@ -130,7 +129,7 @@ export default function LaunchPage() {
                 New Password:
               </label>
               <input
-                className='border border-lightpurp rounded w-full py-1 px-3 text-transparent leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-black leading-tight'
                 type="password"
                 value={signupPassword}
                 onChange={(e) => setSignupPassword(e.target.value)}
@@ -142,7 +141,7 @@ export default function LaunchPage() {
                 Email:
               </label>
               <input
-                className='border border-lightpurp rounded w-full py-1 px-3 text-transparent leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-black leading-tight'
                 type="email"
                 value={signupEmail}
                 onChange={(e) => setSignupEmail(e.target.value)}
@@ -154,7 +153,7 @@ export default function LaunchPage() {
                 First Name:
               </label>
               <input
-                className='border border-lightpurp rounded w-full py-1 px-3 text-transparent leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-black leading-tight'
                 type="text"
                 value={signupFirstName}
                 onChange={(e) => setSignupFirstName(e.target.value)}
@@ -166,7 +165,7 @@ export default function LaunchPage() {
                 Last Name:
               </label>
               <input
-                className='border border-lightpurp rounded w-full py-1 px-3 text-gray-700 leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-black leading-tight'
                 type="text"
                 value={signupLastName}
                 onChange={(e) => setSignupLastName(e.target.value)}
@@ -211,7 +210,7 @@ export default function LaunchPage() {
                 Username:
               </label>
               <input
-                className='border border-lightpurp rounded w-full py-1 px-3 text-white leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-black leading-tight'
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -223,7 +222,7 @@ export default function LaunchPage() {
                 Password:
               </label>
               <input
-                className='border border-lightpurp rounded w-full py-1 px-3 text-white leading-tight'
+                className='border border-lightpurp rounded w-full py-1 px-3 text-black leading-tight'
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

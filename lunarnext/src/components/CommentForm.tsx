@@ -1,3 +1,5 @@
+//COMMENTS = NOTES ON TICKETS
+
 import React, { useState } from "react";
 
 interface CommentFormProps {

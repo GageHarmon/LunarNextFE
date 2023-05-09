@@ -63,6 +63,7 @@ const TicketDetails: React.FC<TicketDetailsProps> = ({
     }
   };
 
+  // ++++ CREDIT TO GPT FOR ASSISTING WITH CHANGING EDITS TO DROPDOWNS ++++
   const handleSubmit = (field: string, value: string) => {
     handleUpdate(field, value);
     if (field === "status") {
