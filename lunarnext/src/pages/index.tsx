@@ -90,14 +90,30 @@ export default function LaunchPage() {
 
   return (
   <Layout>
-    <div className='bg-lightpurp p-20 rounded-lg shadow-2xl'>
+    <div className='bg-transparent p-20 rounded-lg'>
+    <video
+        autoPlay
+        loop
+        muted
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          top: "0",
+          left: "0",
+          objectFit: "cover",
+          zIndex: "-1",
+        }}
+      >
+        <source src="/moonbeam.mp4" type="video/mp4" />
+      </video>
       {showSignupForm ? (
         <>
-          <h2 className='text-3xl font-bold text-navpurp mb-8'>Sign up</h2>
+          <h2 className='text-3xl font-bold text-white mb-8'>Sign up</h2>
           <div className='flex flex-col space-y-4'>
           <form onSubmit={handleSignup}>
             <div className='mb-4'>
-              <label className='block text-navpurp font-bold mb-2' htmlFor='signupUsername'>
+              <label className='block text-lightpurp font-bold mb-2' htmlFor='signupUsername'>
                 New Username:
               </label>
               <input
@@ -109,7 +125,7 @@ export default function LaunchPage() {
               />
             </div>
             <div className='mb-4'>
-              <label className='block text-navpurp font-bold mb-2' htmlFor='signupPassword'>
+              <label className='block text-lightpurp font-bold mb-2' htmlFor='signupPassword'>
                 New Password:
               </label>
               <input
@@ -121,7 +137,7 @@ export default function LaunchPage() {
               />
             </div>
             <div className='mb-4'>
-              <label className='block text-navpurp font-bold mb-2 mt-4' htmlFor='signupEmail'>
+              <label className='block text-lightpurp font-bold mb-2 mt-4' htmlFor='signupEmail'>
                 Email:
               </label>
               <input
@@ -133,7 +149,7 @@ export default function LaunchPage() {
               />
             </div>
             <div className='mb-4'>
-              <label className='block text-navpurp font-bold mb-2 mt-4' htmlFor='signupFirstName'>
+              <label className='block text-lightpurp font-bold mb-2 mt-4' htmlFor='signupFirstName'>
                 First Name:
               </label>
               <input
@@ -145,7 +161,7 @@ export default function LaunchPage() {
               />
             </div>
             <div className='mb-4'>
-              <label className='block text-navpurp font-bold mb-2 mt-4' htmlFor='signupLastName'>
+              <label className='block text-lightpurp font-bold mb-2 mt-4' htmlFor='signupLastName'>
                 Last Name:
               </label>
               <input
@@ -186,11 +202,11 @@ export default function LaunchPage() {
         </>
       ) : (
         <>
-          <h2 className='text-3xl font-bold text-navpurp mb-8'>Log in</h2>
+          <h2 className='text-3xl font-bold text-lightpurp mb-8'>Log in</h2>
           <div className='flex flex-col space-y-4'>
           <form onSubmit={handleSubmit}>
             <div className='mb-4'>
-              <label className='block text-navpurp font-bold mb-2' htmlFor='email'>
+              <label className='block text-lightpurp font-bold mb-2' htmlFor='email'>
                 Username:
               </label>
               <input
@@ -202,7 +218,7 @@ export default function LaunchPage() {
               />
             </div>
             <div className='mb-4'>
-              <label className='block text-navpurp font-bold mb-2' htmlFor='password'>
+              <label className='block text-lightpurp font-bold mb-2' htmlFor='password'>
                 Password:
               </label>
               <input
