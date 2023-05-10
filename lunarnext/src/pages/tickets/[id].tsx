@@ -20,7 +20,7 @@ const TicketInfo: React.FC<TicketInfoProps> = ({ currUser }) => {
 
   return (
     <div>
-      <TicketDetails ticket={ticket} deleteTicket={deleteTicket} admin={currUser.admin}/>
+      <TicketDetails ticket={ticket} deleteTicket={deleteTicket}/>
       <CommentsList comments={comments} onDeleteComment={removeComment} />
       <CommentForm handleSubmit={handleSubmit}/>
     </div>
@@ -28,3 +28,5 @@ const TicketInfo: React.FC<TicketInfoProps> = ({ currUser }) => {
 };
 
 export default TicketInfo;
+
+// admin={currUser.admin}
