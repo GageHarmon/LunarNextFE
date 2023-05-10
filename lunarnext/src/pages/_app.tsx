@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
       .then((data) => {
         setLoggedIn(data.loggedIn);
       });
-  }, []);
+  }, [setLoggedIn]);
 
   useEffect(() => {
     fetch('/logged_user')
@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
     if (currUser) {
       setAdmin(currUser.is_admin);
     }
-  }, [currUser]);
+  }, [currUser, setAdmin]);
  
 
   return (
