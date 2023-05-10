@@ -5,8 +5,6 @@
 
 // module.exports = nextConfig
 
-require('dotenv').config();
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -17,7 +15,7 @@ module.exports = () => {
     return [
       {
         source: "/:path*",
-        destination: `${process.env.NEXT_PUBLIC_BACKEND_URL}/:path*`,
+        destination: "http://127.0.0.1:5555/:path*",
       }
     ];
   };

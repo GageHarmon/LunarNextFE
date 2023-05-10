@@ -7,11 +7,13 @@ import Select from "react-select";
 interface TicketDetailsProps {
   ticket: Ticket | undefined;
   deleteTicket: (ticketId: number) => void;
+  admin: boolean;  // add this line
 }
 
 const TicketDetails: React.FC<TicketDetailsProps> = ({
   ticket,
   deleteTicket,
+  admin,
 }) => {
 
   const [editingStatus, setEditingStatus] = useState(false);
@@ -96,18 +98,27 @@ const TicketDetails: React.FC<TicketDetailsProps> = ({
               value={statusOptions.find((option) => option.value === status)}
               onChange={(option) => setStatus(option.value)}
               options={statusOptions}
-              className="text-navpurp dark:text-white"
+              className="text-navpurp dark:text-white max-w-sm"
             />
             <button onClick={() => handleSubmit("status", status)}>
-              Submit
+              Save
+            </button>
+            <button
+              className="ml-2 text-sm text-pinkred underline"
+              onClick={() => {
+                setStatus(ticket?.status || "");
+                setEditingStatus(false);
+              }}
+            >
+              Cancel
             </button>
           </>
         ) : (
           <>
             <span>{ticket?.status}</span>
-            <button onClick={() => setEditingStatus(true)}>
+            {admin && <button onClick={() => setEditingStatus(true)}>
               <FiEdit className="w-5 h-5 ml-2 text-pinkred" />
-            </button>
+            </button>}
           </>
         )}
       </p>
@@ -119,18 +130,27 @@ const TicketDetails: React.FC<TicketDetailsProps> = ({
               value={priorityOptions.find((option) => option.value === ticket?.priority)}
               onChange={(option) => setPriority(option.value)}
               options={priorityOptions}
-              className="text-navpurp dark:text-white"
+              className="text-navpurp dark:text-white max-w-sm"
             />
             <button onClick={() => handleSubmit("priority", priority)}>
-              Submit
+              Save
+            </button>
+            <button
+              className="ml-2 text-sm text-pinkred underline"
+              onClick={() => {
+                setPriority(ticket?.priority || "");
+                setEditingPriority(false);
+              }}
+            >
+              Cancel
             </button>
           </>
         ) : (
           <>
             <span>{ticket?.priority}</span>
-            <button onClick={() => setEditingPriority(true)}>
+            {admin && <button onClick={() => setEditingPriority(true)}>
               <FiEdit className="w-5 h-5 ml-2 text-pinkred" />
-            </button>
+            </button>}
           </>
         )}
       </p>
@@ -142,18 +162,27 @@ const TicketDetails: React.FC<TicketDetailsProps> = ({
               value={categoryOptions.find((option) => option.value === ticket?.category)}
               onChange={(option) => setCategory(option.value)}
               options={categoryOptions}
-              className="text-navpurp dark:text-white"
+              className="text-navpurp dark:text-white max-w-sm"
             />
             <button onClick={() => handleSubmit("category", category)}>
-              Submit
+              Save
+            </button>
+            <button
+              className="ml-2 text-sm text-pinkred underline"
+              onClick={() => {
+                setCategory(ticket?.category || "");
+                setEditingCategory(false);
+              }}
+            >
+              Cancel
             </button>
           </>
         ) : (
           <>
             <span>{ticket?.category}</span>
-            <button onClick={() => setEditingCategory(true)}>
+            {admin && <button onClick={() => setEditingCategory(true)}>
               <FiEdit className="w-5 h-5 ml-2 text-pinkred" />
-            </button>
+            </button>}
           </>
         )}
       </p>

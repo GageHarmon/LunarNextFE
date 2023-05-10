@@ -40,7 +40,11 @@ const useEditComments = (id: any, currUser: any) => {
     }
   };
 
-  return { comments, handleSubmit };
+  const removeComment = (commentId: number) => {
+    setComments(comments.filter((comment) => comment.id !== commentId));
+  };
+
+  return { comments, handleSubmit, removeComment };
 };
 
 export default useEditComments;

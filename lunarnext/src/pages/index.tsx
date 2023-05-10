@@ -172,19 +172,6 @@ export default function LaunchPage() {
                 placeholder="Last Name"
               />
             </div>
-            {/* <div className='mb-4'>
-              <label className='block text-navpurp font-bold mb-2' htmlFor='isAdmin'>
-                Is Admin?
-              </label>
-              <select
-                className='border rounded w-full py-1 px-3 text-gray-700 leading-tight'
-                value={isAdmin.toString()} // convert boolean to string
-                onChange={(e) => setIsAdmin(e.target.value === 'true')} // convert string back to boolean
-              >
-                <option value="false">No</option>
-                <option value="true">Yes</option>
-              </select>
-            </div> */}
             <input
               className='text-white bg-transparent hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-2 border-lightpurp'
               id='signup-btn'

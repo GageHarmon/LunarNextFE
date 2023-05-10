@@ -4,7 +4,7 @@ import TicketDetails from "../../components/TicketDetails";
 import CommentsList from "../../components/CommentsList";
 import CommentForm from "../../components/CommentForm";
 import useDeleteTicketById from "../../hooks/useDeleteTicket";
-import editComments from "../../hooks/useEditComments";
+import useEditComments from "../../hooks/useEditComments";
 
 interface TicketInfoProps {
   currUser: any;
@@ -15,13 +15,13 @@ const TicketInfo: React.FC<TicketInfoProps> = ({ currUser }) => {
   const router = useRouter();
   const { id } = router.query;
   const { ticket, deleteTicket } = useDeleteTicketById(id);
-  const { comments, handleSubmit } = editComments(id, currUser);
+  const { comments, handleSubmit, removeComment } = useEditComments(id, currUser);
 
   return (
     <div>
-      <TicketDetails ticket={ticket} deleteTicket={deleteTicket} />
-      <CommentsList comments={comments}/>
-      <CommentForm handleSubmit={handleSubmit} />
+      <TicketDetails ticket={ticket} deleteTicket={deleteTicket} admin={currUser.admin}/>
+      <CommentsList comments={comments} onDeleteComment={removeComment} />
+      {currUser.admin &&  <CommentForm handleSubmit={handleSubmit}/>}
     </div>
   );
 };
