@@ -23,7 +23,7 @@ const TicketInfo: React.FC<TicketInfoProps> = ({ currUser }) => {
     <div>
       <TicketDetails ticket={ticket} deleteTicket={deleteTicket} admin={currUser.admin}/>
       <CommentsList comments={comments} onDeleteComment={removeComment} />
-      {currUser?.admin &&  <CommentForm handleSubmit={handleSubmit}/>}
+      <CommentForm handleSubmit={handleSubmit}/>
     </div>
   );
 };
