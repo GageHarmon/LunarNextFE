@@ -5,6 +5,8 @@ import CommentsList from "../../components/CommentsList";
 import CommentForm from "../../components/CommentForm";
 import useDeleteTicketById from "../../hooks/useDeleteTicket";
 import useEditComments from "../../hooks/useEditComments";
+// import { fetchYourTicketData, fetchYourCommentsData } from '../api/ticketcomment';
+
 
 interface TicketInfoProps {
   currUser: any;
@@ -25,5 +27,19 @@ const TicketInfo: React.FC<TicketInfoProps> = ({ currUser }) => {
     </div>
   );
 };
+
+// export async function getServerSideProps(context) {
+//   const { id } = context.query;
+
+//   const ticket = await fetchYourTicketData(id);
+//   const comments = await fetchYourCommentsData(id);
+
+//   return {
+//     props: {
+//       ticket,
+//       comments,
+//     }, 
+//   }
+// }
 
 export default TicketInfo;

@@ -1,21 +1,20 @@
 import { useRouter } from "next/router";
 import { FiTrash, FiEdit } from "react-icons/fi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUserStore } from "../../../store/userdata"; // Import the Zustand store
   
   export default function Home() {
     const currUser = useUserStore((state) => state.currUser); // Access the currUser state from the Zustand store
     const router = useRouter();
-
-    if (!currUser) {
-      return <div className="text-dblue">Please login to continue... </div>;
-    }
-
     const [editingField, setEditingField] = useState("");
     const [username, setUsername] = useState(currUser?.username || "");
     const [email, setEmail] = useState(currUser?.email || "");
     const [first_name, setFirstName] = useState(currUser?.first_name || "");
     const [last_name, setLastName] = useState(currUser?.last_name || "");
+    
+    if (!currUser) {
+      return <div className="text-dblue">Please login to continue... </div>;
+    }
   
     const handleEdit = async (field: string, value: string) => {
       try {
