@@ -7,13 +7,13 @@ import Select from "react-select";
 interface TicketDetailsProps {
   ticket: Ticket | undefined;
   deleteTicket: (ticketId: number) => void;
-  admin: boolean;  // add this line
+  // admin: boolean;  // add this line
 }
 
 const TicketDetails: React.FC<TicketDetailsProps> = ({
   ticket,
   deleteTicket,
-  admin,
+  // admin,
 }) => {
 
   const [editingStatus, setEditingStatus] = useState(false);
@@ -116,9 +116,9 @@ const TicketDetails: React.FC<TicketDetailsProps> = ({
         ) : (
           <>
             <span>{ticket?.status}</span>
-            {admin && <button onClick={() => setEditingStatus(true)}>
+            <button onClick={() => setEditingStatus(true)}>
               <FiEdit className="w-5 h-5 ml-2 text-pinkred" />
-            </button>}
+            </button>
           </>
         )}
       </p>
@@ -148,9 +148,9 @@ const TicketDetails: React.FC<TicketDetailsProps> = ({
         ) : (
           <>
             <span>{ticket?.priority}</span>
-            {admin && <button onClick={() => setEditingPriority(true)}>
+            <button onClick={() => setEditingPriority(true)}>
               <FiEdit className="w-5 h-5 ml-2 text-pinkred" />
-            </button>}
+            </button>
           </>
         )}
       </p>
@@ -180,9 +180,9 @@ const TicketDetails: React.FC<TicketDetailsProps> = ({
         ) : (
           <>
             <span>{ticket?.category}</span>
-            {admin && <button onClick={() => setEditingCategory(true)}>
+            <button onClick={() => setEditingCategory(true)}>
               <FiEdit className="w-5 h-5 ml-2 text-pinkred" />
-            </button>}
+            </button>
           </>
         )}
       </p>
