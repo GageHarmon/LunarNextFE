@@ -15,7 +15,7 @@ module.exports = () => {
     return [
       {
         source: "/:path*",
-        destination: "http://127.0.0.1:5555/:path*",
+        destination: "http://lunar-breeze-ws.onrender.com/:path*",
       }
     ];
   };
