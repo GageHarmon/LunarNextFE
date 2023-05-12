@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useTicketStore } from '../../../store/ticketdata';
 import Link from 'next/link';
 
@@ -9,8 +9,6 @@ interface DashboardProps {
 export default function Dashboard({ currUser }: DashboardProps) {
   const tickets = useTicketStore((state) => state.tickets);
   const fetchAndSetUserTickets = useTicketStore((state) => state.fetchAndSetUserTickets);
-  const [searchTerm, setSearchTerm] = useState("");
-
 
   useEffect(() => {
     if (currUser) {
@@ -22,26 +20,10 @@ export default function Dashboard({ currUser }: DashboardProps) {
     return <div className="text-dblue">Please login to continue... </div>;
   }
 
-  const handleSearchChange = (event) => {
-      setSearchTerm(event.target.value);
-    };
-
-  const filteredTickets = tickets.filter((ticket) => 
-    ticket.id.toString().includes(searchTerm) ||
-    ticket.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   return (
   <div className="mt-4">
     <h2 className="text-3xl font-bold text-navpurp fixed top-20">{currUser.username}&apos;s Dashboard</h2>
-        <input
-        type="text"
-        placeholder="Search by ID or title..."
-        value={searchTerm}
-        onChange={handleSearchChange}
-        className="mb-4 rounded-md h-8"
-        />
-    <div className="mt-1">
+    <div className="mt-4">
       <h3 className="text-2xl font-semibold text-navpurp mb-2">Assigned Tickets</h3>
       <div className="relative overflow-x-auto sm:rounded-lg " style={{ maxHeight: "50vh", overflowY: "auto" }}>
         <table className="w-full text-sm text-left text-blue-100 dark:text-blue-100">
@@ -56,7 +38,7 @@ export default function Dashboard({ currUser }: DashboardProps) {
             </tr>
           </thead>
           <tbody>
-            {filteredTickets.map((ticket, index: number) => (
+            {tickets.map((ticket) => (
               <tr key={ticket.id} className=" text-navpurp bg-white border-b border-blue-400 hover:bg-navpurp hover:text-white">
                 <td className="px-6 py-4">
                   <Link as={`/tickets/${ticket.id}`} href="/tickets/[id]">

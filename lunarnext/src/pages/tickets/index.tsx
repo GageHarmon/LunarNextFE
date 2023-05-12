@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useTicketStore } from '../../../store/ticketdata';
 
@@ -11,8 +11,7 @@ const Tickets: React.FC = ({ currUser }: TicketsProps) => {
     // ++++ ZUSTAND STATE ++++
     const tickets = useTicketStore((state) => state.tickets);
     const fetchAndSetTickets = useTicketStore((state) => state.fetchAndSetTickets);
-    const [searchTerm, setSearchTerm] = useState("");
-
+    
     // ++++  FETCH FROM API FOLDER ++++
     useEffect(() => {
       fetchAndSetTickets();
@@ -42,26 +41,11 @@ const Tickets: React.FC = ({ currUser }: TicketsProps) => {
         console.error('Error:', error);
     }
     };
-    
-    const handleSearchChange = (event) => {
-        setSearchTerm(event.target.value);
-      };
-
-    const filteredTickets = tickets.filter((ticket) => 
-      ticket.id.toString().includes(searchTerm) ||
-      ticket.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+      
     
   return (
     <div >
         <h1 className="text-2xl font-bold text-navpurp mb-4">All Tickets</h1>
-        <input
-            type="text"
-            placeholder="Search by ID or title..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-            className="mb-4 rounded-md h-8"
-        />
     <div className="relative overflow-x-auto sm:rounded-lg " style={{ maxHeight: "60vh", overflowY: "auto" }}>
         <div className="max-h-1/2-screen overflow-y-auto">
         <table className="w-full text-sm text-left text-blue-100 dark:text-blue-100">
@@ -78,8 +62,8 @@ const Tickets: React.FC = ({ currUser }: TicketsProps) => {
                 </tr>
             </thead>
             <tbody>
-                {/* ++++++ MAP TICKET DATA ++++++ */}
-                {filteredTickets.map((ticket, index: number) => (
+                    {/* ++++++ MAP TICKET DATA ++++++ */}
+                {tickets.map((ticket, index: number) => (
                 <tr key={index} className=" text-navpurp bg-white border-b border-blue-400 hover:bg-navpurp hover:text-white">
 
                 {/* +++++ TABLE DATA WITH CLICKABLE ID +++++ */}
