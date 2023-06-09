@@ -50,7 +50,7 @@ const CreateTicket: React.FC = () => {
     if (response.ok) {
       // if ticket is created, redirect to tickets page
       alert('Ticket created successfully.');
-      router.push('/tickets');
+      router.push('/dashboard');
     } else {
       alert('Error creating ticket. Please try again.');
     }
